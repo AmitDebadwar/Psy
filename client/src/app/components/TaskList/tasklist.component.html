@@ -1,0 +1,21 @@
+<div>
+    <h2>Tasks List</h2>
+</div>
+<div>
+    <table border="1" contenteditable="true">
+        <thead>
+            <th>Task</th>
+            <th>Status</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of tasks">
+                <td>
+                    {{task.title}}
+                    </td>
+                    <td>
+                        {{task.isDone}}
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+</div>
