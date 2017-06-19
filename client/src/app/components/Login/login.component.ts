@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
- 
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
     moduleId: module.id,
@@ -7,19 +8,23 @@ import { Component } from '@angular/core';
     templateUrl: './login.component.html'
 })
 export class LoginComponent {
-    loginForm={userEmail:'',userPassword:''};
-  
-   constructor() {}
-  
+    loginForm: FormGroup;
+    constructor() {
+        this.loginForm = new FormGroup({
+            userEmail: new FormControl('',[Validators.required,
+            Validators.minLength(4),Validators.maxLength(7)]),
 
-   ngOninit=()=>{
-    
-   }
+            userPassword:new FormControl('',[Validators.required])
 
-     onLogin=(event:Object) =>{
-        alert(this.loginForm.userEmail +" "+this.loginForm.userPassword);
-     }
-    
-     
-     
+        });
+
+    }
+    onLogin = (event: Object) => {
+        alert('loging');
+    }
+
+   log = (x: object) => {
+        console.log(x);
+    }
+
 }

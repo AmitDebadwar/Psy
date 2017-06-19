@@ -1,7 +1,7 @@
 import { RouterModule, Routes }        from '@angular/router'; 
 import { NgModule }                    from '@angular/core';
 import { BrowserModule }               from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 import { AppComponent }                from './app.component';
 import { HeaderComponent}              from './components/Header/header.component';
@@ -18,7 +18,8 @@ import { NewPatientCreationComponent } from './components/NewPatientCreation/new
 
 
 @NgModule({
-  imports:      [ BrowserModule, RouterModule.forRoot(appRoutes),FormsModule ],
+  imports:      [ BrowserModule, RouterModule.forRoot(appRoutes),
+  FormsModule,ReactiveFormsModule],
   declarations: [ AppComponent, HeaderComponent, LoginComponent, TaskListComponent, NewPatientCreationComponent],
   bootstrap:    [ AppComponent ]
 })

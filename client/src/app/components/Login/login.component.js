@@ -10,15 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
 var LoginComponent = (function () {
     function LoginComponent() {
-        var _this = this;
-        this.loginForm = { userEmail: '', userPassword: '' };
-        this.ngOninit = function () {
-        };
         this.onLogin = function (event) {
-            alert(_this.loginForm.userEmail + " " + _this.loginForm.userPassword);
+            alert('loging');
         };
+        this.log = function (x) {
+            console.log(x);
+        };
+        this.loginForm = new forms_1.FormGroup({
+            userEmail: new forms_1.FormControl('', [forms_1.Validators.required,
+                forms_1.Validators.minLength(4), forms_1.Validators.maxLength(7)]),
+            userPassword: new forms_1.FormControl('', [forms_1.Validators.required])
+        });
     }
     return LoginComponent;
 }());
