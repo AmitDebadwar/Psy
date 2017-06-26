@@ -7,6 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var tabs_1 = require("../../commonComponents/tabs");
+var tab_1 = require("../../commonComponents/tab");
+var ng2_ckeditor_1 = require("../../../../node_modules/ng2-ckeditor");
 var NewPatientCreationComponent = (function () {
     function NewPatientCreationComponent() {
     }
@@ -16,6 +19,10 @@ NewPatientCreationComponent = __decorate([
     core_1.Component({
         selector: 'new-patient-creation',
         templateUrl: './newpatientcreation.component.html'
+    }),
+    core_1.NgModule({
+        imports: [ng2_ckeditor_1.CKEditorModule],
+        declarations: [tabs_1.Tabs, tab_1.Tab]
     })
 ], NewPatientCreationComponent);
 exports.NewPatientCreationComponent = NewPatientCreationComponent;

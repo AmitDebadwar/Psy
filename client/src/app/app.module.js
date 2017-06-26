@@ -15,6 +15,8 @@ var header_component_1 = require("./components/Header/header.component");
 var tasklist_component_1 = require("./components/TaskList/tasklist.component");
 var login_component_1 = require("./components/Login/login.component");
 var newpatientcreation_component_1 = require("./components/NewPatientCreation/newpatientcreation.component");
+var tabs_1 = require("./commonComponents/tabs");
+var tab_1 = require("./commonComponents/tab");
 var appRoutes = [
     { path: 'login', component: login_component_1.LoginComponent },
     { path: 'allTasks', component: tasklist_component_1.TaskListComponent },
@@ -29,8 +31,9 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(appRoutes),
-            forms_1.FormsModule, forms_1.ReactiveFormsModule],
-        declarations: [app_component_1.AppComponent, header_component_1.HeaderComponent, login_component_1.LoginComponent, tasklist_component_1.TaskListComponent, newpatientcreation_component_1.NewPatientCreationComponent],
+            forms_1.FormsModule, forms_1.ReactiveFormsModule
+        ],
+        declarations: [app_component_1.AppComponent, header_component_1.HeaderComponent, login_component_1.LoginComponent, tasklist_component_1.TaskListComponent, newpatientcreation_component_1.NewPatientCreationComponent, tabs_1.Tabs, tab_1.Tab],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

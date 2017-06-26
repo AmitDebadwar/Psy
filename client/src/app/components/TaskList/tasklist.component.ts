@@ -8,6 +8,8 @@ import { TaskListService } from './tasklist.service';
 })
 export class TaskListComponent  {  
   tasks: object[];
+  matchedPatients:string[]=['A','B','C'];
+  
   constructor(taskListService: TaskListService){
     this.tasks=taskListService.getAllTasks();
   }

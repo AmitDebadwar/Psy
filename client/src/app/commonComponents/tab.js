@@ -10,21 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var tasklist_service_1 = require("./tasklist.service");
-var TaskListComponent = (function () {
-    function TaskListComponent(taskListService) {
-        this.matchedPatients = ['A', 'B', 'C'];
-        this.tasks = taskListService.getAllTasks();
+var Tab = (function () {
+    function Tab() {
+        this.active = false;
     }
-    return TaskListComponent;
+    return Tab;
 }());
-TaskListComponent = __decorate([
+__decorate([
+    core_1.Input('tabTitle'),
+    __metadata("design:type", String)
+], Tab.prototype, "title", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], Tab.prototype, "active", void 0);
+Tab = __decorate([
     core_1.Component({
-        selector: 'tasklist',
-        templateUrl: './tasklist.component.html',
-        providers: [tasklist_service_1.TaskListService]
-    }),
-    __metadata("design:paramtypes", [tasklist_service_1.TaskListService])
-], TaskListComponent);
-exports.TaskListComponent = TaskListComponent;
-//# sourceMappingURL=tasklist.component.js.map
+        selector: 'tab',
+        styles: ["\n    .pane{\n      padding: 1em;\n    }\n  "],
+        template: "\n    <div [hidden]=\"!active\" class=\"pane\">\n      <ng-content></ng-content>\n    </div>\n  "
+    })
+], Tab);
+exports.Tab = Tab;
+//# sourceMappingURL=tab.js.map

@@ -1,13 +1,21 @@
-import { RouterModule, Routes }        from '@angular/router'; 
-import { NgModule }                    from '@angular/core';
-import { BrowserModule }               from '@angular/platform-browser';
+import { RouterModule, Routes }               from '@angular/router'; 
+import { NgModule }                           from '@angular/core';
+import { BrowserModule }                      from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+
+ 
+ 
+
 
 import { AppComponent }                from './app.component';
 import { HeaderComponent}              from './components/Header/header.component';
 import { TaskListComponent }           from './components/TaskList/tasklist.component';
 import { LoginComponent }              from './components/Login/login.component';
 import { NewPatientCreationComponent } from './components/NewPatientCreation/newpatientcreation.component';
+
+import {Tabs} from './commonComponents/tabs';
+import { Tab } from './commonComponents/tab';
+
 
  const appRoutes:Routes=[
    {path:'login', component:LoginComponent},
@@ -19,8 +27,9 @@ import { NewPatientCreationComponent } from './components/NewPatientCreation/new
 
 @NgModule({
   imports:      [ BrowserModule, RouterModule.forRoot(appRoutes),
-  FormsModule,ReactiveFormsModule],
-  declarations: [ AppComponent, HeaderComponent, LoginComponent, TaskListComponent, NewPatientCreationComponent],
+  FormsModule,ReactiveFormsModule
+   ],
+  declarations: [ AppComponent, HeaderComponent, LoginComponent, TaskListComponent, NewPatientCreationComponent,Tabs,Tab],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

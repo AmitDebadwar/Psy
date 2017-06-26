@@ -1,0 +1,31 @@
+patients:
+    id
+    salutation
+    firstName
+    middleName
+    LastName
+
+    //title 
+    occupation
+    emailAddress
+    contactNumber
+    currentAddress
+    permanantAdress 
+  
+patientVisits:
+    id
+    Date
+    medicinesPrescribed
+    visitedWithName
+    visitedWithRelation
+    currentStatementorSituation
+    age
+    weight
+
+testTable
+    company
+    vehicle
+
+
+
+ 

@@ -1,32 +1,41 @@
 <div class="row">
   <div class="col-md-12">
-    <h1 style="color:#2B6598">Login</h1>
+    <h1 class="pageHeaderStyle">Login</h1>
   </div>
 </div>
 
 <div>
   <form class="form-horizontal" [formGroup]="loginForm" novalidate>
     <div class="form-group" [ngClass]="{
-      'has-sucess':loginForm.controls.userEmail.valid && (loginForm.controls.userEmail.dirty || loginForm.controls.userEmail.touched), 
-      'has-error':loginForm.controls.userEmail.invalid && (loginForm.controls.userEmail.dirty || loginForm.controls.userEmail.touched) 
+      'has-sucess':userEmailValidation.valid && (userEmailValidation.dirty || userEmailValidation.touched), 
+      'has-error': userEmailValidation.invalid && (userEmailValidation.dirty || userEmailValidation.touched) 
     }">
       <label for="userEmail" class="col-sm-offset-2 col-sm-2 control-label">Email</label>
       <div class="col-sm-3">
-        <input type="email" class="form-control" name="userEmail" placeholder="Email" 
-        [(ngModel)]="userEmail"
-        formControlName="userEmail">
-        <span id="helpBlock2" class="help-block" *ngIf="loginForm.controls.userEmail.invalid && (loginForm.controls.userEmail.dirty || loginForm.controls.userEmail.touched)" style="color:red;">Please enter a valid email!</span>
-        <span id="helpBlock2" class="help-block" *ngIf="loginForm.controls.userEmail.require" style="color:red;">Email is required field!</span>
+
+        <input type="email" class="form-control" name="userEmail" placeholder="Email" formControlName="userEmailValidation" (focus)="onEmailFocus($event)">
+
+        <div *ngIf="userEmailValidation.errors && (userEmailValidation.dirty || userEmailValidation.touched)">
+          <p class="text-danger" *ngIf="userEmailValidation.errors.required">Email field is required for Log In !</p>
+          <p class="text-danger" *ngIf="userEmailValidation.errors.email">Enter valid email address!</p>
+        </div>
       </div>
-       {{loginForm.controls.userEmail.required}}
-      bbb{{loginForm.controls.userEmail.required}}
+
     </div>
     <div class="form-group">
       <label for="userPassword" class="col-sm-offset-2 col-sm-2 control-label">Password</label>
       <div class="col-sm-3">
-        <input type="email" class="form-control" name="userPassword" placeholder="Password"
-        [(ngModel)]="userPassword"
-        formControlName="userPassword">
+        <input type="password" class="form-control" name="userPassword" placeholder="Password" formControlName="userPasswordValidation"
+          (focus)="onPasswordFocus($event)">
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-3">
+        <p class="text-danger" [hidden]="notValidUser">email id or password is invalid!</p>
+
       </div>
     </div>
 
