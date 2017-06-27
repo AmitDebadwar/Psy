@@ -12,6 +12,7 @@
     map: {
       // our app is within the app folder
       'app': 'app',
+       "ng2-ckeditor": "npm:ng2-ckeditor",
         
        
 
@@ -31,6 +32,10 @@
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
+       "ng2-ckeditor": {
+        "main": "lib/index.js",
+        "defaultExtension": "js",
+      },
       app: {
         defaultExtension: 'js',
         meta: {

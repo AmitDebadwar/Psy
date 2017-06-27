@@ -15,25 +15,29 @@ var header_component_1 = require("./components/Header/header.component");
 var tasklist_component_1 = require("./components/TaskList/tasklist.component");
 var login_component_1 = require("./components/Login/login.component");
 var newpatientcreation_component_1 = require("./components/NewPatientCreation/newpatientcreation.component");
+var editor_component_1 = require("./components/editor/editor.component");
 var tabs_1 = require("./commonComponents/tabs");
 var tab_1 = require("./commonComponents/tab");
+var ng2_ckeditor_1 = require("ng2-ckeditor");
 var appRoutes = [
     { path: 'login', component: login_component_1.LoginComponent },
     { path: 'allTasks', component: tasklist_component_1.TaskListComponent },
     { path: 'newPatientCreation', component: newpatientcreation_component_1.NewPatientCreationComponent },
+    { path: 'editor', component: editor_component_1.EditorComponent },
     { path: '**', component: login_component_1.LoginComponent }
 ];
 var AppModule = (function () {
     function AppModule() {
+        this.ckeditorContent = "<b>saibaba</b>";
     }
     return AppModule;
 }());
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(appRoutes),
-            forms_1.FormsModule, forms_1.ReactiveFormsModule
+            forms_1.FormsModule, forms_1.ReactiveFormsModule, ng2_ckeditor_1.CKEditorModule
         ],
-        declarations: [app_component_1.AppComponent, header_component_1.HeaderComponent, login_component_1.LoginComponent, tasklist_component_1.TaskListComponent, newpatientcreation_component_1.NewPatientCreationComponent, tabs_1.Tabs, tab_1.Tab],
+        declarations: [app_component_1.AppComponent, header_component_1.HeaderComponent, login_component_1.LoginComponent, tasklist_component_1.TaskListComponent, newpatientcreation_component_1.NewPatientCreationComponent, tabs_1.Tabs, tab_1.Tab, editor_component_1.EditorComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

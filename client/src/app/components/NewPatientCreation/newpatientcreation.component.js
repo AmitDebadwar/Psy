@@ -7,11 +7,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
 var tabs_1 = require("../../commonComponents/tabs");
 var tab_1 = require("../../commonComponents/tab");
-var ng2_ckeditor_1 = require("../../../../node_modules/ng2-ckeditor");
+//import { CKEditorModule } from '../../../../node_modules/ng2-ckeditor';
+var ng2_ckeditor_1 = require("ng2-ckeditor");
 var NewPatientCreationComponent = (function () {
     function NewPatientCreationComponent() {
+        this.ckeditorContent = '<h1 style="text-align: center;"><strong><span style="color:#0033cc">Form 16</span></strong></h1><hr /><p>&nbsp;</p>';
     }
     return NewPatientCreationComponent;
 }());
@@ -21,7 +24,7 @@ NewPatientCreationComponent = __decorate([
         templateUrl: './newpatientcreation.component.html'
     }),
     core_1.NgModule({
-        imports: [ng2_ckeditor_1.CKEditorModule],
+        imports: [ng2_ckeditor_1.CKEditorModule, forms_1.FormsModule],
         declarations: [tabs_1.Tabs, tab_1.Tab]
     })
 ], NewPatientCreationComponent);
