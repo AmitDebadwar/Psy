@@ -16,7 +16,14 @@ import { DomSanitizer } from '@angular/platform-browser'
 })
 export class NewPatientCreationComponent{
   ckeditorContent = `
-      <div data-tagInfo="bodyTag" style="padding:0px 15px;border:1px solid lightgray;">
+      <html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div data-tagInfo="bodyTag" style="padding:0px 15px;border:1px solid lightgray;">
         <h1 style="text-align:center"><span style="color:#696969"><strong>Sankalp Hospital</strong></span></h1>
         <div data-tagInfo="headerRow" style="display:flex;justify-content: space-between">
             <div data-tagInfo="leftHeader" style="text-align:left;float:left;width:50%;">
@@ -45,7 +52,7 @@ export class NewPatientCreationComponent{
 
             </div>
         </div>
-        <hr>
+        <hr style="border-color:darkgray" />
 
         <div data-tagInfo="middleBodyPart" style="word-break: keep-all;">
             <p>
@@ -81,14 +88,20 @@ export class NewPatientCreationComponent{
             </p>
 
         </div>
+        <hr style="border-color:darkgray" />
 
+        <div data-tagInfo="footer" style="margin:80px 10px 20px 10px;">
+            <div data-tagInfo="footerRow" style="display:flex;justify-content: space-between">
+                <div data-tagInfo="leftFooter" style="float:left;width:50%;">
+                    <b>Patient's Signature</b>
+                </div>
 
-
-
-
-
+                <div data-tagInfo="rightFooter" style="float:right">
+                    <b>Doctors Signature</b>
+                </div>
+            </div>
+        </div>
     </div data-tagInfo="bodyTagClosed">
-
  
  `;
   isShowEditor = false;
