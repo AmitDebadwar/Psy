@@ -6,14 +6,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <ckeditor
-    [(ngModel)]="ckeditorContent"
-   
-    [readonly]="false"
-    
-    debounce="500">
-  </ckeditor>
-        <!--<form name="newPatientEnrollment">
+        <form name="newPatientEnrollment">
             <tabs>
                 <tab [tabTitle]="'Personal Info'">
 
@@ -140,7 +133,7 @@
                         </div>
                     </div>
 
-                    
+
                     <button type="button" class="btn btn-primary">Submit</button>
                     <button type="button" class="btn btn-default">Reset</button>
 
@@ -151,24 +144,29 @@
 
                 <tab [tabTitle]="'Case Study'">
                     <div class="row">
-                        <div class="col-md-12"> 
-                            Sai
-                            <br>
- <ckeditor
-    [(ngModel)]="ckeditorContent"
-  
-    (change)="onChange($event)"
-    (ready)="onReady($event)"
-    (focus)="onFocus($event)"
-    (blur)="onBlur($event)"
-    debounce="500">
-  </ckeditor>
+
+                        <div class="col-md-12" *ngIf="!isShowEditor">
+                            <div [innerHtml]="previewContent"></div>
                         </div>
+
+
+                        <div class="col-md-12" *ngIf="isShowEditor">
+                            <ckeditor [(ngModel)]="ckeditorContent" debounce="500" [ngModelOptions]="{standalone: true}">
+                            </ckeditor>
+                        </div>
+                        
                     </div>
                 </tab>
 
             </tabs>
-        </form>-->
+        </form>
 
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <input type="button" class="btn btn-primary" (click)="preview()" value="Preview"/>
+
+         <input type="button" class="btn btn-primary" (click)="showEditorCk()" value="Edit"/>{{hideEditor}}
     </div>
 </div>

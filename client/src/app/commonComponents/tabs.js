@@ -33,7 +33,7 @@ var Tabs = (function () {
 }());
 __decorate([
     core_1.ContentChildren(tab_1.Tab),
-    __metadata("design:type", typeof (_a = typeof core_1.QueryList !== "undefined" && core_1.QueryList) === "function" && _a || Object)
+    __metadata("design:type", core_1.QueryList)
 ], Tabs.prototype, "tabs", void 0);
 Tabs = __decorate([
     core_1.Component({
@@ -43,5 +43,4 @@ Tabs = __decorate([
     })
 ], Tabs);
 exports.Tabs = Tabs;
-var _a;
 //# sourceMappingURL=tabs.js.map
