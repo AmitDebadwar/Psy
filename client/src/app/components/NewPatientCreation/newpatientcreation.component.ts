@@ -1,9 +1,11 @@
-import { Component, NgModule, Pipe,OnInit } from '@angular/core';
+import { Component, NgModule, Pipe, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Tabs } from '../../commonComponents/tabs';
 import { Tab } from '../../commonComponents/tab';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { DomSanitizer } from '@angular/platform-browser'
+
+import { SymptomModel } from '../../Model/symtom.model'
 
 @Component({
   selector: 'new-patient-creation',
@@ -14,16 +16,54 @@ import { DomSanitizer } from '@angular/platform-browser'
   imports: [CKEditorModule, FormsModule],
   declarations: [Tabs, Tab]
 })
-export class NewPatientCreationComponent{
-  ckeditorContent = `
-      <html>
+export class NewPatientCreationComponent {
+  ckeditorContent: string;
+  allSymptoms: SymptomModel[] = [];
+  symptoms: SymptomModel[] = [];
+  symptomsDisplay: string = "";
 
-<head>
-    <title></title>
-</head>
+  isShowEditor = false;
+  previewContent: any;
 
-<body>
-    <div data-tagInfo="bodyTag" style="padding:0px 15px;border:1px solid lightgray;">
+
+
+
+
+  constructor(private sanitized: DomSanitizer) {
+
+    let s1 = new SymptomModel();
+    s1.name = "Insomnia";
+    s1.isSelected = false;
+
+
+    
+
+    let s2 = new SymptomModel();
+    s2.name = "Fear";
+    s2.isSelected = false;
+
+let s3 = new SymptomModel();
+    s3.name = "Sucidal Thoughts";
+    s3.isSelected = false;
+
+let s4 = new SymptomModel();
+    s4.name = "Over thinking";
+    s4.isSelected = false;
+
+
+
+    this.allSymptoms.push(s1);
+    this.allSymptoms.push(s2);
+    this.allSymptoms.push(s3);
+    this.allSymptoms.push(s4);
+
+    this.getEditorContent("");
+    this.previewContent = this.sanitized.bypassSecurityTrustHtml(this.ckeditorContent);
+  }
+
+  getEditorContent = (smtms: string): string => {
+    this.ckeditorContent = `
+      <div data-tagInfo="bodyTag" style="padding:0px 15px;border:1px solid lightgray;">
         <h1 style="text-align:center"><span style="color:#696969"><strong>Sankalp Hospital</strong></span></h1>
         <div data-tagInfo="headerRow" style="display:flex;justify-content: space-between">
             <div data-tagInfo="leftHeader" style="text-align:left;float:left;width:50%;">
@@ -65,7 +105,7 @@ export class NewPatientCreationComponent{
                 here, is that it offers you some background information on the use and history of ‘Lorem Ipsum.’
             </p>
             <p>
-                He has been found with following symtoms: symtomsList
+               <strong> He has been found with following symtoms: `+ smtms + `</strong>
             </p>
             <p>
                 This is one of the simpler, no-frills text generators based only on Lorem Ipsum. You basically are only able to adjust the
@@ -104,19 +144,36 @@ export class NewPatientCreationComponent{
     </div data-tagInfo="bodyTagClosed">
  
  `;
-  isShowEditor = false;
-  previewContent:any;
-  constructor(private sanitized: DomSanitizer) {
-    this.previewContent = this.sanitized.bypassSecurityTrustHtml(this.ckeditorContent);
+    return this.ckeditorContent;
   }
 
-  preview = ()=> {
+  preview = () => {
     this.previewContent = this.sanitized.bypassSecurityTrustHtml(this.ckeditorContent);
     this.isShowEditor = false;
   }
 
   showEditorCk = () => {
     this.isShowEditor = true;
+  }
+
+  addSymptons = (sym: SymptomModel) => {
+
+
+    if (!sym.isSelected) {
+      this.symptoms = this.symptoms.filter(item => item.name !== sym.name);
+    }
+    else {
+      this.symptoms.push(sym);
+    }
+
+    this.symptomsDisplay = this.symptoms.map(function (element) {
+      return element.name;
+    }).join(", ");
+
+
+    this.getEditorContent(this.symptomsDisplay);
+    this.previewContent = this.sanitized.bypassSecurityTrustHtml(this.ckeditorContent);
+    
   }
 
 }
