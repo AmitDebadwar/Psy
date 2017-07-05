@@ -13,7 +13,8 @@
                     <div class="col-md-4" data-info="firstArea">
                         <div class="form-group has-success has-feedback">
                             <label class="control-label" for="inputSuccess2">First Name</label>
-                            <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status">
+                            <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status"
+                            placeholder="patient's first name">
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                             <span id="inputSuccess2Status" class="sr-only">(success)</span>
                         </div>
@@ -22,7 +23,8 @@
                             <label class="control-label" for="inputGroupSuccess1">Eamil ID</label>
                             <div class="input-group">
                                 <span class="input-group-addon glyphicon glyphicon-user" style="position:initial"></span>
-                                <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+                                <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status"
+                                placeholder="patient's email id">
                             </div>
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                             <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
@@ -48,8 +50,11 @@
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
-                                <input type="checkbox"> Current address and Permanent address is same?
+                                <input type="checkbox" 
+                                (click)="copyTempAddressToPerAddress()"
+                                [(ngModel)]="sameTempAddress" [ngModelOptions]="{standalone: true}"> Current address and Permanent address is same?
                             </label>
+                             
                             </div>
                         </div>
 
@@ -58,7 +63,8 @@
 
                         <div class="form-group has-warning has-feedback">
                             <label class="control-label" for="inputWarning2">Middle Name</label>
-                            <input type="text" class="form-control" id="inputWarning2" aria-describedby="inputWarning2Status">
+                            <input type="text" class="form-control" id="inputWarning2" aria-describedby="inputWarning2Status"
+                            placeholder="patient's middle name">
                             <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
                             <span id="inputWarning2Status" class="sr-only">(warning)</span>
                         </div>
@@ -67,7 +73,8 @@
                             <label class="control-label" for="inputGroupSuccess1">Contact Number</label>
                             <div class="input-group">
                                 <span class="input-group-addon glyphicon glyphicon-phone" style="position:initial"></span>
-                                <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+                                <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status"
+                                placeholder="primary contact number e.g. 9096-174-175">
                             </div>
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                             <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
@@ -90,7 +97,9 @@
 
                         <div class="form-group has-warning has-feedback">
                             <label class="control-label" for="inputWarning2">Current Address</label>
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea class="form-control" rows="3"
+                            [(ngModel)]="pCurrentAddress" [ngModelOptions]="{standalone: true}"
+                            ></textarea>
                             <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
                             <span id="inputWarning2Status" class="sr-only">(warning)</span>
                         </div>
@@ -100,7 +109,8 @@
 
                         <div class="form-group has-error has-feedback">
                             <label class="control-label" for="inputError2">Last Name</label>
-                            <input type="text" class="form-control" id="inputError2" aria-describedby="inputError2Status">
+                            <input type="text" class="form-control" id="inputError2" aria-describedby="inputError2Status"
+                            placeholder="patient's lastname">
                             <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
                             <span id="inputError2Status" class="sr-only">(error)</span>
                         </div>
@@ -109,7 +119,8 @@
                             <label class="control-label" for="inputGroupSuccess1">Alternate Contact</label>
                             <div class="input-group">
                                 <span class="input-group-addon glyphicon glyphicon-phone" style="position:initial"></span>
-                                <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+                                <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status"
+                                placeholder="alternet number e.g. 9096-174-176">
                             </div>
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                             <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
@@ -118,6 +129,7 @@
                         <div class="form-group">
                             <label for="disabledSelect">Occupation</label>
                             <select id="disabledSelect" class="form-control">
+                                <option>-- Select --</option>
                                 <option>Student</option>
                                 <option>Government Servent</option>
                                 <option>Private Job</option>
@@ -127,15 +139,22 @@
 
                         <div class="form-group has-warning has-feedback">
                             <label class="control-label" for="inputWarning2">Permanent Address</label>
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea class="form-control" rows="3"
+                            [(ngModel)]="pPermanentAddress" [ngModelOptions]="{standalone: true}"
+                            ></textarea>
                             <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
                             <span id="inputWarning2Status" class="sr-only">(warning)</span>
                         </div>
-                    </div>
 
-
+                            <div class="pull-right form-group">
+                                
                     <button type="button" class="btn btn-primary">Submit</button>
                     <button type="button" class="btn btn-default">Reset</button>
+
+                            </div>
+
+                    </div>
+
 
                 </tab>
                 <tab [tabTitle]="'Medical Background'">Tab 2 Content

@@ -8,61 +8,65 @@ import { DomSanitizer } from '@angular/platform-browser'
 import { SymptomModel } from '../../Model/symtom.model'
 
 @Component({
-  selector: 'new-patient-creation',
-  templateUrl: './newpatientcreation.component.html'
+    selector: 'new-patient-creation',
+    templateUrl: './newpatientcreation.component.html'
 })
 @Pipe({ name: 'safeHtml' })
 @NgModule({
-  imports: [CKEditorModule, FormsModule],
-  declarations: [Tabs, Tab]
+    imports: [CKEditorModule, FormsModule],
+    declarations: [Tabs, Tab]
 })
 export class NewPatientCreationComponent {
-  ckeditorContent: string;
-  allSymptoms: SymptomModel[] = [];
-  symptoms: SymptomModel[] = [];
-  symptomsDisplay: string = "";
-
-  isShowEditor = false;
-  previewContent: any;
-
-
+    ckeditorContent: string;
+    allSymptoms: SymptomModel[] = [];
+    symptoms: SymptomModel[] = [];
+    symptomsDisplay: string = "";
+    pCurrentAddress: string = "";
+    pPermanentAddress: string = "";
+    sameTempAddress: boolean = false;
 
 
-
-  constructor(private sanitized: DomSanitizer) {
-
-    let s1 = new SymptomModel();
-    s1.name = "Insomnia";
-    s1.isSelected = false;
-
-
-    
-
-    let s2 = new SymptomModel();
-    s2.name = "Fear";
-    s2.isSelected = false;
-
-let s3 = new SymptomModel();
-    s3.name = "Sucidal Thoughts";
-    s3.isSelected = false;
-
-let s4 = new SymptomModel();
-    s4.name = "Over thinking";
-    s4.isSelected = false;
+    isShowEditor = false;
+    previewContent: any;
 
 
 
-    this.allSymptoms.push(s1);
-    this.allSymptoms.push(s2);
-    this.allSymptoms.push(s3);
-    this.allSymptoms.push(s4);
 
-    this.getEditorContent("");
-    this.previewContent = this.sanitized.bypassSecurityTrustHtml(this.ckeditorContent);
-  }
 
-  getEditorContent = (smtms: string): string => {
-    this.ckeditorContent = `
+    constructor(private sanitized: DomSanitizer) {
+
+        let s1 = new SymptomModel();
+        s1.name = "Insomnia";
+        s1.isSelected = false;
+
+
+
+
+        let s2 = new SymptomModel();
+        s2.name = "Fear";
+        s2.isSelected = false;
+
+        let s3 = new SymptomModel();
+        s3.name = "Sucidal Thoughts";
+        s3.isSelected = false;
+
+        let s4 = new SymptomModel();
+        s4.name = "Over thinking";
+        s4.isSelected = false;
+
+
+
+        this.allSymptoms.push(s1);
+        this.allSymptoms.push(s2);
+        this.allSymptoms.push(s3);
+        this.allSymptoms.push(s4);
+
+        this.getEditorContent("");
+        this.previewContent = this.sanitized.bypassSecurityTrustHtml(this.ckeditorContent);
+    }
+
+    getEditorContent = (smtms: string): string => {
+        this.ckeditorContent = `
       <div data-tagInfo="bodyTag" style="padding:0px 15px;border:1px solid lightgray;">
         <h1 style="text-align:center"><span style="color:#696969"><strong>Sankalp Hospital</strong></span></h1>
         <div data-tagInfo="headerRow" style="display:flex;justify-content: space-between">
@@ -144,36 +148,46 @@ let s4 = new SymptomModel();
     </div data-tagInfo="bodyTagClosed">
  
  `;
-    return this.ckeditorContent;
-  }
-
-  preview = () => {
-    this.previewContent = this.sanitized.bypassSecurityTrustHtml(this.ckeditorContent);
-    this.isShowEditor = false;
-  }
-
-  showEditorCk = () => {
-    this.isShowEditor = true;
-  }
-
-  addSymptons = (sym: SymptomModel) => {
-
-
-    if (!sym.isSelected) {
-      this.symptoms = this.symptoms.filter(item => item.name !== sym.name);
-    }
-    else {
-      this.symptoms.push(sym);
+        return this.ckeditorContent;
     }
 
-    this.symptomsDisplay = this.symptoms.map(function (element) {
-      return element.name;
-    }).join(", ");
+    preview = () => {
+        this.previewContent = this.sanitized.bypassSecurityTrustHtml(this.ckeditorContent);
+        this.isShowEditor = false;
+    }
+
+    showEditorCk = () => {
+        this.isShowEditor = true;
+    }
+
+    addSymptons = (sym: SymptomModel) => {
 
 
-    this.getEditorContent(this.symptomsDisplay);
-    this.previewContent = this.sanitized.bypassSecurityTrustHtml(this.ckeditorContent);
-    
-  }
+        if (!sym.isSelected) {
+            this.symptoms = this.symptoms.filter(item => item.name !== sym.name);
+        }
+        else {
+            this.symptoms.push(sym);
+        }
 
+        this.symptomsDisplay = this.symptoms.map(function (element) {
+            return element.name;
+        }).join(", ");
+
+
+        this.getEditorContent(this.symptomsDisplay);
+        this.previewContent = this.sanitized.bypassSecurityTrustHtml(this.ckeditorContent);
+
+    }
+
+    copyTempAddressToPerAddress = (): void => {
+        if (this.sameTempAddress) {
+            this.pPermanentAddress = "";
+        } else {
+            
+            this.pPermanentAddress = this.pCurrentAddress;
+        }
+
+        this.sameTempAddress = !this.sameTempAddress;
+    }
 }
