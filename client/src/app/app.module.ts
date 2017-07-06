@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-
+import {HttpModule} from '@angular/http';
 
 
 import { AppComponent } from './app.component';
@@ -31,7 +31,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(appRoutes),
-    FormsModule, ReactiveFormsModule, CKEditorModule
+    FormsModule, ReactiveFormsModule, CKEditorModule, HttpModule
   ],
   declarations: [AppComponent, HeaderComponent, LoginComponent, TaskListComponent, NewPatientCreationComponent, Tabs, Tab, EditorComponent],
   bootstrap: [AppComponent]

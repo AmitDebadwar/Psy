@@ -15,11 +15,13 @@ var tabs_1 = require("../../commonComponents/tabs");
 var tab_1 = require("../../commonComponents/tab");
 var ng2_ckeditor_1 = require("ng2-ckeditor");
 var platform_browser_1 = require("@angular/platform-browser");
-var symtom_model_1 = require("../../Model/symtom.model");
+var Sympton_Model_1 = require("../../Model/Sympton.Model");
+var http_1 = require("@angular/http");
 var NewPatientCreationComponent = (function () {
-    function NewPatientCreationComponent(sanitized) {
+    function NewPatientCreationComponent(sanitized, http) {
         var _this = this;
         this.sanitized = sanitized;
+        this.http = http;
         this.allSymptoms = [];
         this.symptoms = [];
         this.symptomsDisplay = "";
@@ -60,16 +62,25 @@ var NewPatientCreationComponent = (function () {
             }
             _this.sameTempAddress = !_this.sameTempAddress;
         };
-        var s1 = new symtom_model_1.SymptomModel();
+        this.downloadCaseStudyFile = function () {
+            alert('file downloading 1');
+            // let p=new Promise((resolve,reject)=>{
+            //     this.http.get("/saiDownload").subscribe(r=>{
+            //         console.log("saibaba1");
+            //         console.log(r);
+            //     });
+            // });
+        };
+        var s1 = new Sympton_Model_1.SymptomModel();
         s1.name = "Insomnia";
         s1.isSelected = false;
-        var s2 = new symtom_model_1.SymptomModel();
+        var s2 = new Sympton_Model_1.SymptomModel();
         s2.name = "Fear";
         s2.isSelected = false;
-        var s3 = new symtom_model_1.SymptomModel();
+        var s3 = new Sympton_Model_1.SymptomModel();
         s3.name = "Sucidal Thoughts";
         s3.isSelected = false;
-        var s4 = new symtom_model_1.SymptomModel();
+        var s4 = new Sympton_Model_1.SymptomModel();
         s4.name = "Over thinking";
         s4.isSelected = false;
         this.allSymptoms.push(s1);
@@ -88,10 +99,11 @@ NewPatientCreationComponent = __decorate([
     }),
     core_1.Pipe({ name: 'safeHtml' }),
     core_1.NgModule({
-        imports: [ng2_ckeditor_1.CKEditorModule, forms_1.FormsModule],
+        imports: [ng2_ckeditor_1.CKEditorModule, forms_1.FormsModule, http_1.Http],
         declarations: [tabs_1.Tabs, tab_1.Tab]
     }),
-    __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [platform_browser_1.DomSanitizer, http_1.Http])
 ], NewPatientCreationComponent);
 exports.NewPatientCreationComponent = NewPatientCreationComponent;
 //# sourceMappingURL=newpatientcreation.component.js.map

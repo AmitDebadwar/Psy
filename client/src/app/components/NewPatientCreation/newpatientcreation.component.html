@@ -13,8 +13,7 @@
                     <div class="col-md-4" data-info="firstArea">
                         <div class="form-group has-success has-feedback">
                             <label class="control-label" for="inputSuccess2">First Name</label>
-                            <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status"
-                            placeholder="patient's first name">
+                            <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status" placeholder="patient's first name">
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                             <span id="inputSuccess2Status" class="sr-only">(success)</span>
                         </div>
@@ -23,8 +22,7 @@
                             <label class="control-label" for="inputGroupSuccess1">Eamil ID</label>
                             <div class="input-group">
                                 <span class="input-group-addon glyphicon glyphicon-user" style="position:initial"></span>
-                                <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status"
-                                placeholder="patient's email id">
+                                <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status" placeholder="patient's email id">
                             </div>
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                             <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
@@ -54,7 +52,7 @@
                                 (click)="copyTempAddressToPerAddress()"
                                 [(ngModel)]="sameTempAddress" [ngModelOptions]="{standalone: true}"> Current address and Permanent address is same?
                             </label>
-                             
+
                             </div>
                         </div>
 
@@ -63,8 +61,7 @@
 
                         <div class="form-group has-warning has-feedback">
                             <label class="control-label" for="inputWarning2">Middle Name</label>
-                            <input type="text" class="form-control" id="inputWarning2" aria-describedby="inputWarning2Status"
-                            placeholder="patient's middle name">
+                            <input type="text" class="form-control" id="inputWarning2" aria-describedby="inputWarning2Status" placeholder="patient's middle name">
                             <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
                             <span id="inputWarning2Status" class="sr-only">(warning)</span>
                         </div>
@@ -73,8 +70,7 @@
                             <label class="control-label" for="inputGroupSuccess1">Contact Number</label>
                             <div class="input-group">
                                 <span class="input-group-addon glyphicon glyphicon-phone" style="position:initial"></span>
-                                <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status"
-                                placeholder="primary contact number e.g. 9096-174-175">
+                                <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status" placeholder="primary contact number e.g. 9096-174-175">
                             </div>
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                             <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
@@ -97,9 +93,7 @@
 
                         <div class="form-group has-warning has-feedback">
                             <label class="control-label" for="inputWarning2">Current Address</label>
-                            <textarea class="form-control" rows="3"
-                            [(ngModel)]="pCurrentAddress" [ngModelOptions]="{standalone: true}"
-                            ></textarea>
+                            <textarea class="form-control" rows="3" [(ngModel)]="pCurrentAddress" [ngModelOptions]="{standalone: true}"></textarea>
                             <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
                             <span id="inputWarning2Status" class="sr-only">(warning)</span>
                         </div>
@@ -109,8 +103,7 @@
 
                         <div class="form-group has-error has-feedback">
                             <label class="control-label" for="inputError2">Last Name</label>
-                            <input type="text" class="form-control" id="inputError2" aria-describedby="inputError2Status"
-                            placeholder="patient's lastname">
+                            <input type="text" class="form-control" id="inputError2" aria-describedby="inputError2Status" placeholder="patient's lastname">
                             <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
                             <span id="inputError2Status" class="sr-only">(error)</span>
                         </div>
@@ -119,8 +112,7 @@
                             <label class="control-label" for="inputGroupSuccess1">Alternate Contact</label>
                             <div class="input-group">
                                 <span class="input-group-addon glyphicon glyphicon-phone" style="position:initial"></span>
-                                <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status"
-                                placeholder="alternet number e.g. 9096-174-176">
+                                <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status" placeholder="alternet number e.g. 9096-174-176">
                             </div>
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                             <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
@@ -139,19 +131,17 @@
 
                         <div class="form-group has-warning has-feedback">
                             <label class="control-label" for="inputWarning2">Permanent Address</label>
-                            <textarea class="form-control" rows="3"
-                            [(ngModel)]="pPermanentAddress" [ngModelOptions]="{standalone: true}"
-                            ></textarea>
+                            <textarea class="form-control" rows="3" [(ngModel)]="pPermanentAddress" [ngModelOptions]="{standalone: true}"></textarea>
                             <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
                             <span id="inputWarning2Status" class="sr-only">(warning)</span>
                         </div>
 
-                            <div class="pull-right form-group">
-                                
-                    <button type="button" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-default">Reset</button>
+                        <div class="pull-right form-group">
 
-                            </div>
+                            <button type="button" class="btn btn-primary">Submit</button>
+                            <button type="button" class="btn btn-default">Reset</button>
+
+                        </div>
 
                     </div>
 
@@ -176,10 +166,19 @@
                     </div>
                     <div class="row" style="margin:5px 5px;">
 
-                        <div class="col-md-4">
-                            <input type="button" class="btn btn-primary" (click)="preview()" *ngIf="isShowEditor" value="Preview" />
+                        <div class="col-md-12">
+                            <div class="pull-right">
+                                <input type="button" class="btn btn-primary" (click)="preview()" *ngIf="isShowEditor" value="Preview" />
+                                <input type="button" class="btn btn-primary" (click)="showEditorCk()" *ngIf="!isShowEditor" value="Edit" />
+                                <input type="button" class="btn btn-primary" value="Save" />
+                            </div>
 
-                            <input type="button" class="btn btn-primary" (click)="showEditorCk()" *ngIf="!isShowEditor" value="Edit" />{{hideEditor}}
+                            <div class="pull-left">
+                                <button class="btn btn-link" (click)="downloadCaseStudyFile()">Download PDF File
+                                     <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true">
+                                     </span>
+                                     </button>
+                            </div>
                         </div>
 
 
@@ -199,10 +198,10 @@
 </div>
 
 <div class="row" *ngIf="isShowEditor">
-         <div class="col-md-12">
-             <div data-tagInfo="virtualButtons" *ngFor="let s of allSymptoms" style="width:auto;padding: 3px 7px; margin:5px;display:inline-block;border:1px solid lightgray;"
-             [style.borderColor]="s.isSelected?'green':'black'" (click)="s.isSelected=!s.isSelected;addSymptons(s)">
-                 {{s.name}}
-             </div>
-         <div>  
-</div>
+    <div class="col-md-12">
+        <div data-tagInfo="virtualButtons" *ngFor="let s of allSymptoms" style="width:auto;padding: 3px 7px; margin:5px;display:inline-block;border:1px solid lightgray;"
+            [style.borderColor]="s.isSelected?'green':'black'" (click)="s.isSelected=!s.isSelected;addSymptons(s)">
+            {{s.name}}
+        </div>
+        <div>
+        </div>

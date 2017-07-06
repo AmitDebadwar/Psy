@@ -13,7 +13,12 @@ var core_1 = require("@angular/core");
 var tasklist_service_1 = require("./tasklist.service");
 var TaskListComponent = (function () {
     function TaskListComponent(taskListService) {
+        var _this = this;
+        this.taskListService = taskListService;
         this.matchedPatients = ['A', 'B', 'C'];
+        this.searchPatients = function () {
+            _this.taskListService.searchPatients(_this.searchPatient);
+        };
         this.tasks = taskListService.getAllTasks();
     }
     return TaskListComponent;

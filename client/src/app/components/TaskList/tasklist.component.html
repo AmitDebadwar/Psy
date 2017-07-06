@@ -9,7 +9,10 @@
             <div class="form-group">
                 <label for="inputEmail3" class="col-md-2 control-label">Search Patient: </label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="enter name | lastname | mobile number | city | patient id to search"
+                    <input type="text" class="form-control" id="inputEmail3"
+                     placeholder="enter name | lastname | mobile number | city | patient id to search"
+                     [(ngModel)]="searchPatient"
+                     [ngModelOptions]="{standalone: true}"
                         list="matchedPatients">
                     <datalist id="matchedPatients">
                         <option *ngFor="let p of matchedPatients">{{p}}</option>
@@ -17,7 +20,8 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-2">
-                        <button type="button" class="btn btn-primary">Search</button>
+                        <button type="button" class="btn btn-primary"
+                        (click)="searchPatients()">Search</button>
                     </div>
                 </div>
             </div>

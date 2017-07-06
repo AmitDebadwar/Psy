@@ -1,21 +1,24 @@
-import { Component, NgModule, Pipe, OnInit } from '@angular/core';
+import { Component, NgModule, Pipe, OnInit, Injectable } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Tabs } from '../../commonComponents/tabs';
 import { Tab } from '../../commonComponents/tab';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { DomSanitizer } from '@angular/platform-browser'
+import { Observable } from "rxjs/Observable";
 
-import { SymptomModel } from '../../Model/symtom.model'
+import { SymptomModel } from '../../Model/Sympton.Model'
+import {Http} from '@angular/http';
 
 @Component({
     selector: 'new-patient-creation',
-    templateUrl: './newpatientcreation.component.html'
+    templateUrl: './newpatientcreation.component.html' 
 })
 @Pipe({ name: 'safeHtml' })
 @NgModule({
-    imports: [CKEditorModule, FormsModule],
+    imports: [CKEditorModule, FormsModule, Http ],
     declarations: [Tabs, Tab]
 })
+@Injectable()
 export class NewPatientCreationComponent {
     ckeditorContent: string;
     allSymptoms: SymptomModel[] = [];
@@ -33,7 +36,7 @@ export class NewPatientCreationComponent {
 
 
 
-    constructor(private sanitized: DomSanitizer) {
+    constructor(private sanitized: DomSanitizer, private http:Http) {
 
         let s1 = new SymptomModel();
         s1.name = "Insomnia";
@@ -189,5 +192,16 @@ export class NewPatientCreationComponent {
         }
 
         this.sameTempAddress = !this.sameTempAddress;
+    }
+
+    downloadCaseStudyFile = () :void =>{
+        alert('file downloading 1');
+     
+        // let p=new Promise((resolve,reject)=>{
+        //     this.http.get("/saiDownload").subscribe(r=>{
+        //         console.log("saibaba1");
+        //         console.log(r);
+        //     });
+        // });
     }
 }
