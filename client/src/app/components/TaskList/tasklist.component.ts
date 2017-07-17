@@ -11,12 +11,14 @@ export class TaskListComponent {
   tasks: object[];
   matchedPatients: string[] = ['A', 'B', 'C'];
   searchPatient:string;
+  isSearchSectionVisible:boolean=false;
 
   constructor(private taskListService: TaskListService) {
     this.tasks = taskListService.getAllTasks();
   }
 
   searchPatients = (): void => {
+    this.isSearchSectionVisible=true;
     this.taskListService.searchPatients(this.searchPatient);
   }
 

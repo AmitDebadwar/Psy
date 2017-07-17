@@ -7,15 +7,15 @@ import { DomSanitizer } from '@angular/platform-browser'
 import { Observable } from "rxjs/Observable";
 
 import { SymptomModel } from '../../Model/Sympton.Model'
-import {Http} from '@angular/http';
+import { Http } from '@angular/http';
 
 @Component({
     selector: 'new-patient-creation',
-    templateUrl: './newpatientcreation.component.html' 
+    templateUrl: './newpatientcreation.component.html'
 })
 @Pipe({ name: 'safeHtml' })
 @NgModule({
-    imports: [CKEditorModule, FormsModule, Http ],
+    imports: [CKEditorModule, FormsModule, Http],
     declarations: [Tabs, Tab]
 })
 @Injectable()
@@ -32,11 +32,16 @@ export class NewPatientCreationComponent {
     isShowEditor = false;
     previewContent: any;
 
+    todaysDate: string;
+    formatedDate: string = "";
 
 
+    constructor(private sanitized: DomSanitizer, private http: Http) {
 
 
-    constructor(private sanitized: DomSanitizer, private http:Http) {
+        this.todaysDate = this.formatDate((new Date()));
+
+
 
         let s1 = new SymptomModel();
         s1.name = "Insomnia";
@@ -59,6 +64,7 @@ export class NewPatientCreationComponent {
 
 
 
+
         this.allSymptoms.push(s1);
         this.allSymptoms.push(s2);
         this.allSymptoms.push(s3);
@@ -66,6 +72,21 @@ export class NewPatientCreationComponent {
 
         this.getEditorContent("");
         this.previewContent = this.sanitized.bypassSecurityTrustHtml(this.ckeditorContent);
+    }
+
+    formatDate = (date:Date) => {
+        var monthNames = [
+            "Jan", "Feb", "Mar",
+            "Apr", "May", "Jun", "Jul",
+            "Aug", "Sep", "Oct",
+            "Nov", "Dec"
+        ];
+
+        var day = date.getDate();
+        var monthIndex = date.getMonth();
+        var year = date.getFullYear();
+
+        return day + '<sup>th</sup> ' + monthNames[monthIndex] + ', ' + year;
     }
 
     getEditorContent = (smtms: string): string => {
@@ -84,12 +105,13 @@ export class NewPatientCreationComponent {
                     <tbody>
                         <tr>
                             <th style="text-align:right;">Patient Name:</th>
-                            <td style="text-align:left;">Amit Kumar Arora</td>
+                            <td style="text-align:left;"> Amit Kumar Arora</td>
                         </tr>
 
                         <tr>
                             <th style="text-align: right">Date:</th>
-                            <td style="text-align:left;">31 March, 2017</td>
+                            <td style="text-align:left;"> `+  this.todaysDate + `</td>
+                             
                         </tr>
 
 
@@ -187,16 +209,16 @@ export class NewPatientCreationComponent {
         if (this.sameTempAddress) {
             this.pPermanentAddress = "";
         } else {
-            
+
             this.pPermanentAddress = this.pCurrentAddress;
         }
 
         this.sameTempAddress = !this.sameTempAddress;
     }
 
-    downloadCaseStudyFile = () :void =>{
+    downloadCaseStudyFile = (): void => {
         alert('file downloading 1');
-     
+
         // let p=new Promise((resolve,reject)=>{
         //     this.http.get("/saiDownload").subscribe(r=>{
         //         console.log("saibaba1");

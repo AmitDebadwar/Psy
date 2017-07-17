@@ -16,7 +16,9 @@ var TaskListComponent = (function () {
         var _this = this;
         this.taskListService = taskListService;
         this.matchedPatients = ['A', 'B', 'C'];
+        this.isSearchSectionVisible = false;
         this.searchPatients = function () {
+            _this.isSearchSectionVisible = true;
             _this.taskListService.searchPatients(_this.searchPatient);
         };
         this.tasks = taskListService.getAllTasks();
