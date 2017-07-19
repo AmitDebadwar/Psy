@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-import {HttpModule} from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
@@ -12,10 +12,10 @@ import { HeaderComponent } from './components/Header/header.component';
 import { TaskListComponent } from './components/TaskList/tasklist.component';
 import { LoginComponent } from './components/Login/login.component';
 import { NewPatientCreationComponent } from './components/NewPatientCreation/newpatientcreation.component';
-import { VisitListComponent} from './components/VisitList/VisitList.component';
+import { VisitListComponent } from './components/VisitList/VisitList.component';
 import { EditorComponent } from './components/editor/editor.component';
 import { VisitDetailsComponent } from './components/VisitDetails/visitdetails.component';
-
+import { AddVisitComponent } from './components/AddVisit/addvisit.component';
 
 import { Tabs } from './commonComponents/tabs';
 import { Tab } from './commonComponents/tab';
@@ -28,6 +28,7 @@ const appRoutes: Routes = [
   { path: 'editor', component: EditorComponent },
   { path: 'visitlist', component: VisitListComponent },
   { path: 'visitdetails', component: VisitDetailsComponent },
+    { path: 'addVisit', component: AddVisitComponent },
 
   { path: '**', component: LoginComponent }
 ];
@@ -37,9 +38,17 @@ const appRoutes: Routes = [
   imports: [BrowserModule, RouterModule.forRoot(appRoutes),
     FormsModule, ReactiveFormsModule, CKEditorModule, HttpModule
   ],
-  declarations: [AppComponent, HeaderComponent, LoginComponent, TaskListComponent, NewPatientCreationComponent, Tabs, Tab, EditorComponent
-  ,VisitListComponent,
-  VisitDetailsComponent
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    LoginComponent,
+    TaskListComponent,
+    NewPatientCreationComponent,
+    Tabs,
+    Tab, EditorComponent,
+    VisitListComponent,
+    VisitDetailsComponent,
+    AddVisitComponent
   ],
   bootstrap: [AppComponent]
 })

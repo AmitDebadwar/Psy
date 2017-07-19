@@ -165,6 +165,11 @@ export class NewPatientCreationComponent {
                     <b>Patient's Signature</b>
                 </div>
 
+               <div>
+                    <img src="app/assets/thumbImpression.jpg" style="width:40%; height: 50%; border:1px solid gray;"/> 
+                    <img src="app/assets/patientPhoto.jpg" width="96" height="90" style="margin-left:1%; border:1px solid gray;"/>
+               </div>
+ 
                 <div data-tagInfo="rightFooter" style="float:right">
                     <b>Doctors Signature</b>
                 </div>

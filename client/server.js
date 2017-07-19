@@ -10,6 +10,7 @@ app.use('/api', jsonServer.router('db.json'));
 app.use(express.static('node_modules'));
 app.use(express.static('src'));
 app.use(express.static('/ng2-ckeditor'));
+app.use(express.static('assets'));
 //app.use(pdf);
 
 

@@ -19,6 +19,7 @@ var newpatientcreation_component_1 = require("./components/NewPatientCreation/ne
 var VisitList_component_1 = require("./components/VisitList/VisitList.component");
 var editor_component_1 = require("./components/editor/editor.component");
 var visitdetails_component_1 = require("./components/VisitDetails/visitdetails.component");
+var addvisit_component_1 = require("./components/AddVisit/addvisit.component");
 var tabs_1 = require("./commonComponents/tabs");
 var tab_1 = require("./commonComponents/tab");
 var ng2_ckeditor_1 = require("ng2-ckeditor");
@@ -29,6 +30,7 @@ var appRoutes = [
     { path: 'editor', component: editor_component_1.EditorComponent },
     { path: 'visitlist', component: VisitList_component_1.VisitListComponent },
     { path: 'visitdetails', component: visitdetails_component_1.VisitDetailsComponent },
+    { path: 'addVisit', component: addvisit_component_1.AddVisitComponent },
     { path: '**', component: login_component_1.LoginComponent }
 ];
 var AppModule = (function () {
@@ -42,9 +44,17 @@ AppModule = __decorate([
         imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(appRoutes),
             forms_1.FormsModule, forms_1.ReactiveFormsModule, ng2_ckeditor_1.CKEditorModule, http_1.HttpModule
         ],
-        declarations: [app_component_1.AppComponent, header_component_1.HeaderComponent, login_component_1.LoginComponent, tasklist_component_1.TaskListComponent, newpatientcreation_component_1.NewPatientCreationComponent, tabs_1.Tabs, tab_1.Tab, editor_component_1.EditorComponent,
+        declarations: [
+            app_component_1.AppComponent,
+            header_component_1.HeaderComponent,
+            login_component_1.LoginComponent,
+            tasklist_component_1.TaskListComponent,
+            newpatientcreation_component_1.NewPatientCreationComponent,
+            tabs_1.Tabs,
+            tab_1.Tab, editor_component_1.EditorComponent,
             VisitList_component_1.VisitListComponent,
-            visitdetails_component_1.VisitDetailsComponent
+            visitdetails_component_1.VisitDetailsComponent,
+            addvisit_component_1.AddVisitComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     })
