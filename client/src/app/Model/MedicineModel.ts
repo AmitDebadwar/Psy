@@ -1,12 +1,14 @@
 export class MedicineModel {
     medicineName: string;
     morning: boolean;
-    morningHalf:boolean;
+    morningQuantity:string;
 
     afternoon: boolean;
-    afternoonHalp:boolean;
+    afternoonQuantity:string;
 
     night: boolean;
-    nightHalp:boolean;
+    nightQuantity:string;
+
+    comments:string;
  
 }

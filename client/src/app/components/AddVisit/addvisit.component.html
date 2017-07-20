@@ -8,11 +8,11 @@
     <div class="col-md-3">
         <h2 style="color:gray;">Amit Debadwar</h2>
     </div>
- <div class="col-md-9">
+    <div class="col-md-9">
         <span class="pull-right"><b>Date:</b> 21 July, 2017</span>
     </div>
 </div>
- 
+
 
 
 <div class="row">
@@ -22,7 +22,7 @@
 </div>
 
 
-<div class="row">
+<div class="row" *ngIf="isInEditMode">
     <div class="col-md-12">
         <table class="table">
             <thead>
@@ -39,14 +39,16 @@
                 <tr *ngFor="let med of medicines;let i=index">
                     <td>{{i+1}}</td>
                     <td>
-                        <select [(ngModel)]="this.selectedMedicine">
+                        <select [(ngModel)]="med.medicineName">
+                         <option value="">-- select medicine -- </option>
                          <option *ngFor="let am of medicineList" [value]="am">{{am}}</option>
                         </select>
                     </td>
-                    <td><input type="checkbox" /> <select [(ngModel)]="selectedDoseMorning"><option *ngFor="let sdm of doseQuantities" [value]="sdm">{{sdm}}</option></select>                        </td>
-                    <td><input type="checkbox" /> <select [(ngModel)]="selectedDoseNoon"><option *ngFor="let sdn of doseQuantities" [value]="sdn">{{sdn}}</option></select></td>
-                    <td><input type="checkbox" /> <select [(ngModel)]="selectedDoseNight"><option *ngFor="let sdnt of doseQuantities" [value]="sdnt">{{sdnt}}</option></select></td>
-                    <td><input type="text" class="form-control"/></td>
+                    <td><input type="checkbox"  [(ngModel)]="med.morning"/> <select [(ngModel)]="med.morningQuantity"><option value=""> -- </option><option *ngFor="let sdm of doseQuantities" [value]="sdm">{{sdm}}</option></select>                        </td>
+                    <td><input type="checkbox"  [(ngModel)]="med.afternoon"/> <select [(ngModel)]="med.afternoonQuantity"><option value=""> -- </option><option *ngFor="let sdn of doseQuantities" [value]="sdn">{{sdn}}</option></select></td>
+                    <td><input type="checkbox"  [(ngModel)]="med.night"/> <select [(ngModel)]="med.nightQuantity"><option value=""> -- </option><option *ngFor="let sdnt of doseQuantities" [value]="sdnt">{{sdnt}}</option></select></td>
+                    <td><input type="text" class="form-control" [(ngModel)]="med.comments" /></td>
+
                 </tr>
             </tbody>
         </table>
@@ -55,6 +57,40 @@
 </div>
 
 
+<div class="row" *ngIf="!isInEditMode">
+    <div class="col-md-6">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Medicine</th>
+                    <th>Morning</th>
+                    <th>Afternoon</th>
+                    <th>Night</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let med of medicines;let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{med.medicineName}}</td>
+                    <td>{{(med.morning ? 'Y':'X')}} {{(med.morningQuantity ? '('+ med.morningQuantity+')' :'')}}</td>
+                    <td>{{med.afternoon ? 'Y':'X'}} {{med.afternoonQuantity ? '('+ med.afternoonQuantity+')' :''}}</td>
+                    <td>{{med.night ? 'Y':'X'}} {{med.nightQuantity ? '('+ med.nightQuantity+')' :'' }}</td>
+                    <td>{{med.comments}}</td>
+                </tr>
+            </tbody>
+        </table>
+          
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <input type="button" class="btn btn-sm btn-primary" (click)="prescriptionDone()" [value]="isInEditMode?'Done !':'Edit Prescription'"/>
+        <input type="button" class="btn btn-sm btn-default" *ngIf="!isInEditMode" [value]="'Print Prescription'"/>
+    </div>
+</div>
 
 
 
