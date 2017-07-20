@@ -2,7 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { Typeahead } from 'ng2-typeahead';
 
 import { HttpModule } from '@angular/http';
 
@@ -39,6 +39,7 @@ const appRoutes: Routes = [
     FormsModule, ReactiveFormsModule, CKEditorModule, HttpModule
   ],
   declarations: [
+    Typeahead ,
     AppComponent,
     HeaderComponent,
     LoginComponent,

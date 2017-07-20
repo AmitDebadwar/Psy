@@ -40,7 +40,6 @@
                     <td>{{i+1}}</td>
                     <td>
                         <select [(ngModel)]="med.medicineName">
-                         <option value="">-- select medicine -- </option>
                          <option *ngFor="let am of medicineList" [value]="am">{{am}}</option>
                         </select>
                     </td>
@@ -99,5 +98,15 @@
 <div class="row">
     <div class="col-md-12">
         <hr style="border:1px solid lightgray;" />
+        <typeahead
+  [(ngModel)]="selectedFruit"
+  [list]="fruits"
+  [searchProperty]="'searchText'" [displayProperty]="'name'"
+  [maxSuggestions]="10"
+  (suggestionSelected)="fruitSelected($event)"
+  placeholder="enter medicine name">
+</typeahead>
+ 
+<p>You selected {{ fruitName }}</p>
     </div>
 </div>

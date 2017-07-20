@@ -10,6 +10,7 @@ var router_1 = require("@angular/router");
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
+var ng2_typeahead_1 = require("ng2-typeahead");
 var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var header_component_1 = require("./components/Header/header.component");
@@ -45,6 +46,7 @@ AppModule = __decorate([
             forms_1.FormsModule, forms_1.ReactiveFormsModule, ng2_ckeditor_1.CKEditorModule, http_1.HttpModule
         ],
         declarations: [
+            ng2_typeahead_1.Typeahead,
             app_component_1.AppComponent,
             header_component_1.HeaderComponent,
             login_component_1.LoginComponent,

@@ -13,7 +13,7 @@
       // our app is within the app folder
       'app': 'app',
        "ng2-ckeditor": "npm:ng2-ckeditor",
-        
+       'ng2-typeahead':'npm:ng2-typeahead',    
        
 
       // angular bundles
@@ -34,8 +34,9 @@
     packages: {
        "ng2-ckeditor": {
         "main": "lib/index.js",
-        "defaultExtension": "js",
+        "defaultExtension": "js"        
       },
+      'ng2-typeahead':              { main: 'lib/ng2-typeahead.js', defaultExtension: 'js' },
       app: {
         defaultExtension: 'js',
         meta: {
